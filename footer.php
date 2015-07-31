@@ -1,28 +1,14 @@
         </main>
-        <?php
-            // Get footer content
-            $content = get_field('footer_content', 'option');
-        ?>
-        <section class="bar">
-            <div class="row">
-                <div class="small-12 medium-4 large-4 columns">
-                    <?=$content[0]['box_left']?>
-                </div>
-                <div class="small-12 medium-4 large-4 columns">
-                    <?=$content[0]['box_middle']?>
-                </div>
-                <div class="small-12 medium-4 large-4 columns">
-                    <?=$content[0]['box_right']?>
-                </div>
-            </div>
-        </section>
-
-        <div class="row hide-for-small-only" id="reg_text">
-            <div class="small-12 columns text-center">
-                <p>Copyright &reg; <?=date("Y")?> Doc Comp Onsite Computer Services</p>
+        <!-- Menu -->
+        <?php get_template_part( 'parts/bottom-bar' ); ?>
+        <div class="row">
+            <div class="large-12 columns">
+                <p>
+                    &reg; All Rights Reserved Cellar Door Games <?=date("Y")?>
+                </p>
             </div>
         </div>
-    <?php wp_footer(); ?>
+        <?php wp_footer(); ?>
     <script>
 
     </script>

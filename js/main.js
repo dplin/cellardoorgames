@@ -1,27 +1,5 @@
-$(document).foundation();
-
-// executes as soon as DOM is ready
-$(function(){
-    // Mobile Menu
-    jQuery(".toggle-nav").on("click", function(event) {
-        jQuery('.menu ul').toggleClass('active');
-        return false;
-    });
-
-    // Catch all clicks outside of Menu.
-    // Note: Follow this guide for better handling of event bubbling.
-    // Link: http://css-tricks.com/dangers-stopping-event-propagation/
-    jQuery(document).on("click", function() {
-        if (!$(event.target).closest('.toggle-nav').length) {
-            // Hide the menus.
-            jQuery('.menu ul').addClass('active');
-        }
-    });
-});
-
-// executes when complete page is fully loaded, including all frames, objects and images
-$(window).load(function() {
-    $('.flexslider').flexslider({
+$(function() {
+    $('.flexslider_slider').flexslider({
       animation: "fade",
       directionNav: false,
       controlNav: false,
@@ -29,6 +7,47 @@ $(window).load(function() {
       slideshowSpeed: 8000,
       randomize:  true
     });
+
+    $('.flexslider_feature_games').flexslider({
+      animation: "slide",
+      animationLoop: false,
+      itemWidth: 300,
+      itemMargin: 10
+    });
 });
 
 
+var config5 = {
+  "id": '619541223322206210',
+  "domId": 'twitter_box',
+
+  "enableLinks": true,
+  "showUser": true,
+  "showTime": true,
+  "dateFunction": '',
+  "showRetweet": false,
+  "customCallback": handleTweets,
+  "showInteraction": true
+};
+
+function handleTweets(tweets){
+    var x = tweets.length;
+    var n = 0;
+    var element = document.getElementById('twitter_box');
+    var html = '<ul>';
+    while(n < x) {
+      html += '<li>' + tweets[n].replace('hours', 'hr').replace('Posted ', '').replace('on ', '').replace(' ago', '') + '</li>';
+      console.log(tweets[n]);
+      n++;
+    }
+    html += '</ul>';
+
+
+    element.innerHTML = html;
+}
+
+window.onload = function() {
+    // all of your code goes in here
+    // it runs after the DOM is built
+}
+twitterFetcher.fetch(config5);

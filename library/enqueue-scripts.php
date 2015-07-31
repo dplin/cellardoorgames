@@ -7,8 +7,15 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 
 		// Google Font
 		wp_enqueue_style( 'Google Font', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://fonts.googleapis.com/css?family=Roboto", false, null );
+
+		// Flexslider
+		wp_enqueue_style( 'flexslider.css', get_stylesheet_directory_uri() . '/css/flexslider.css', false, null );
+
+		// Flexslider
+		wp_enqueue_style( 'foundation.css', get_stylesheet_directory_uri() . '/css/foundation.css', false, null );
+
 		// Main stylesheet
-		wp_enqueue_style( 'Style.css', get_stylesheet_directory_uri() . '/css/styles.min.css', false, null );
+		wp_enqueue_style( 'style.css', get_stylesheet_directory_uri() . '/css/styles.css', false, null );
 
 		/* JavaScript */
 
@@ -27,16 +34,18 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 
 		// Bottom
 		wp_register_script( 'jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://code.jquery.com/jquery-2.1.4.min.js", false, null, true );
-		wp_register_script( 'lib', get_template_directory_uri() . '/js/lib.min.js', array(), null, true );
-		wp_register_script( 'ng-app', get_template_directory_uri() . '/js/app.min.js', array(), null, true );
+		wp_register_script( 'twitter-fetch', get_template_directory_uri() . '/js/twitterFetcher.js', array(), null, true );
+		wp_register_script( 'flexslider', get_template_directory_uri() . '/js/flexslider.js', array(), null, true );
+		wp_register_script( 'main', get_template_directory_uri() . '/js/main.js', array(), null, true );
 		// Inject WordPress Theme URL into Angular Application
 		wp_localize_script( 'ng-app', 'site', array( 'theme_url' => get_template_directory_uri() ) );
 		// Enqueue all registered scripts
 		wp_enqueue_script( 'modernizr' );
 		wp_enqueue_script( 'fastclick' );
 		wp_enqueue_script( 'jquery' );
-		wp_enqueue_script( 'lib' );
-		wp_enqueue_script( 'ng-app' );
+		wp_enqueue_script( 'twitter-fetch' );
+		wp_enqueue_script( 'flexslider' );
+		wp_enqueue_script( 'main' );
 
 	}
 	add_action( 'wp_enqueue_scripts', 'foundationpress_scripts' );
