@@ -25,6 +25,11 @@
         </div>
     </div>
 </div>
+<div class="row">
+    <div class="large-12 columns">
+        <button>Read more news</button>
+    </div>
+</div>
 <style type="text/css">
     a{
         text-decoration: none;

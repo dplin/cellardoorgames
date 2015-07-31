@@ -11,14 +11,18 @@
             $recent_posts = wp_get_recent_posts( $args );
             foreach( $recent_posts as $recent ):
                 var_dump($recent);
-                echo '<li><a href="' . get_permalink($recent["ID"]) . '">' .   $recent["post_title"].'</a> </li> ';
+        ?>
+            <div>
+                <li><a href="<?= get_permalink($recent["ID"]); ?>"><?= $recent["post_title"]; ?></a></li>
+            </div>
+        <?php
             endforeach;
         ?>
         </ul>
     </div>
     <div class="large-4 columns">
         <h2>Archive</h2>
-        <?php wp_get_archives( array( 'type' => 'daily', 'limit' => 16) ); ?>
+        <?php wp_get_archives( array( 'type' => 'monthly', 'limit' => 16) ); ?>
     </div>
 </div>
 <?php get_footer(); ?>

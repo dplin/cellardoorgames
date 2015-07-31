@@ -1,4 +1,6 @@
 $(function() {
+    $('.post').fitVids();
+
     $('.flexslider_slider').flexslider({
       animation: "fade",
       directionNav: false,

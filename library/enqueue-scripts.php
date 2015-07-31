@@ -35,6 +35,7 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 		// Bottom
 		wp_register_script( 'jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://code.jquery.com/jquery-2.1.4.min.js", false, null, true );
 		wp_register_script( 'twitter-fetch', get_template_directory_uri() . '/js/twitterFetcher.js', array(), null, true );
+		wp_register_script( 'fitvids', get_template_directory_uri() . '/js/jquery.fitvids.js', array(), null, true );
 		wp_register_script( 'flexslider', get_template_directory_uri() . '/js/flexslider.js', array(), null, true );
 		wp_register_script( 'main', get_template_directory_uri() . '/js/main.js', array(), null, true );
 		// Inject WordPress Theme URL into Angular Application
@@ -44,6 +45,7 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 		wp_enqueue_script( 'fastclick' );
 		wp_enqueue_script( 'jquery' );
 		wp_enqueue_script( 'twitter-fetch' );
+		wp_enqueue_script( 'fitvids' );
 		wp_enqueue_script( 'flexslider' );
 		wp_enqueue_script( 'main' );
 
